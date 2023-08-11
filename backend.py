@@ -1,15 +1,13 @@
 import mysql.connector
 import json
 from datetime import datetime
-
+# opening the file location
 file_path = r'C:\Users\denni\Downloads\data_absen (3).json'
 with open(file_path, 'r') as file:
     json_data = file.read()
 
-data_array = json.loads(json_data)
+data = json.loads(json_data)
 
-# Access the first element in the list (assuming there's only one object in the JSON data)
-data = data_array
 
 # Convert date and time strings to datetime objects
 data['tanggal'] = datetime.strptime(data['tanggal'], '%Y-%m-%d')

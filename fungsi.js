@@ -1,5 +1,7 @@
+// declare the variables
 let sudah_absen = false;
 let connected = false;
+// class for data
 let data = 
     {
         tanggal   : null,
@@ -37,6 +39,7 @@ function showTime() {
     ).innerHTML = currentTime;
 }
 showTime();
+// Defining the showdate function
 function showDate() {
     // Getting current date
     let time = new Date();
@@ -56,6 +59,7 @@ function showDate() {
     document.getElementById("date").innerHTML = currentDate;
 }
 showDate();
+// the main button program
 document.getElementById("absen").onclick = function() {
     if (sudah_absen) {
         failedSound.play();
@@ -82,7 +86,7 @@ document.getElementById("absen").onclick = function() {
         saveJSONToFile(jsonData, 'data_absen.json');
     }
 };
-
+// saving file a a json
 function saveJSONToFile(jsonData, fileName) {
     const dataUri = `data:application/json;charset=utf-8,${encodeURIComponent(jsonData)}`;
     const link = document.createElement('a');
