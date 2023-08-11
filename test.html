@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="checkloc()">Check Location</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function checkloc() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      if ((latitude < -6.5172148 &&
+          latitude > -6.5179010 &&
+          longitude > 106.8536724 &&
+          longitude < 106.8544023)
+          ||(latitude < -6.5156408 &&
+          latitude > -6.5167384 &&
+          longitude > 106.8581755 &&
+          longitude < 106.8583150)) {
+        console.log("You are within the specified location.");
+      } else {
+        console.log("You are not within the specified location.");
+      }
+    });
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
+}
+</script>
+</body>
+</html>
